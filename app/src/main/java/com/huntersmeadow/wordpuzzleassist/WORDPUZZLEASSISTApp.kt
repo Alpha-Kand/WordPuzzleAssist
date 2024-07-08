@@ -2,8 +2,7 @@ package com.huntersmeadow.wordpuzzleassist
 
 import com.huntersmeadow.wordpuzzleassist.workclasses.WordDictionary
 
-/** The global app context.
- */
+/** The global app context. */
 class WORDPUZZLEASSISTApp : android.app.Application() {
 
     // -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-

@@ -74,9 +74,11 @@ class AnagramFinder(callback: MutableInteger = MutableInteger(-1)) : AssistParen
         min: Int = 1,
         max: Int = 50,
     ): ArrayList<String> {
-        val lambda = { value: String,
+        val lambda = {
+                value: String,
                 mini: Int,
-                maxi: Int, ->
+                maxi: Int,
+            ->
             computePhrasesWrapped(value, mini, maxi)
         }
         return compute(lambda, input, min, max, modifier)
@@ -97,9 +99,11 @@ class AnagramFinder(callback: MutableInteger = MutableInteger(-1)) : AssistParen
         min: Int = 1,
         max: Int = 50,
     ): ArrayList<String> {
-        val lambda = { value: String,
+        val lambda = {
+                value: String,
                 mini: Int,
-                maxi: Int, ->
+                maxi: Int,
+            ->
             computeSubWordsWrapped(value, mini, maxi)
         }
         return compute(lambda, input, min, max, modifier)
@@ -411,15 +415,16 @@ class AnagramFinder(callback: MutableInteger = MutableInteger(-1)) : AssistParen
      *  @param post The last two letters to add and rearrange at the end.
      */
     private fun handleTwoLengthPhrases(pre: String, post: String, tree: TreeSet<String>) {
-        val a = pre + post[0] + post[1]
-        val b = pre + post[1] + post[0]
-
-        if (mCheckIfWord(a)) {
-            addPhrase(a, tree)
+        (pre + post[0] + post[1]).let {
+            if (mCheckIfWord(it)) {
+                addPhrase(it, tree)
+            }
         }
 
-        if (mCheckIfWord(b)) {
-            addPhrase(b, tree)
+        (pre + post[1] + post[0]).let {
+            if (mCheckIfWord(it)) {
+                addPhrase(it, tree)
+            }
         }
     }
 
@@ -432,8 +437,8 @@ class AnagramFinder(callback: MutableInteger = MutableInteger(-1)) : AssistParen
     private fun addPhrase(input: String, tree: TreeSet<String>) {
         tree.add(input)
         val sb = StringBuilder()
-        for (a in tree) {
-            sb.append(a)
+        tree.forEach {
+            sb.append(it)
             sb.append(" ")
         }
 
@@ -479,11 +484,11 @@ class AnagramFinder(callback: MutableInteger = MutableInteger(-1)) : AssistParen
      */
     private fun increaseProgress(preLetters: Int) {
         mInternal += (
-            reverseSubFactorial(preLetters, preLetters).toDouble() / reverseSubFactorial(
-                mUpdatePOD.mLength,
-                mUpdatePOD.mLength,
-            ).toDouble()
-            ) * 100.0
+                reverseSubFactorial(preLetters, preLetters).toDouble() / reverseSubFactorial(
+                    mUpdatePOD.mLength,
+                    mUpdatePOD.mLength,
+                ).toDouble()
+                ) * 100.0
         mProgress.mValue = (mInternal / mUpdatePOD.mMultiplier).toInt()
     }
 
