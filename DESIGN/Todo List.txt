@@ -1,0 +1,21 @@
+-Check for lines that exceed the line mark
+
+-Single asterisk in FITB is really slow.
+
+-Have Mum edit store listing.
+
+-Add letter should show which letter is being added.
+
+-Move directory text over smidgen.
+
+-Add OK button to help dialog.
+
+-Add more dictionaries (My special pick for example).
+
+-Save assists for after app closes.
+
+-"Period" in FITB reminder text.
+
+-Add back button from assist views.
+
+-Add the ability for more letters in "Add letter" anagram button.
