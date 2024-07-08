@@ -1,0 +1,97 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'jacoco'
+apply plugin: 'org.jetbrains.dokka-android'
+
+repositories {
+    mavenCentral()
+}
+
+android {
+    compileSdk 34
+    project.archivesBaseName = "Word Puzzle Assist"
+    namespace 'com.huntersmeadow.wordpuzzleassist'
+
+    defaultConfig {
+        applicationId "com.huntersmeadow.wordpuzzleassist"
+        minSdkVersion 21
+        targetSdkVersion 34
+        versionCode 4
+        versionName "@string/version_number"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments clearPackageData: 'true'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            debuggable true
+            testCoverageEnabled true
+            minifyEnabled false
+            applicationIdSuffix ".debug"
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+    }
+
+    sourceSets.main {
+        jniLibs.srcDir 'libs'
+    }
+
+    testOptions {
+        animationsDisabled true
+
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    dokka {
+        outputFormat = 'html'
+        outputDirectory = "$buildDir/Dokka"
+        reportUndocumented = true
+        includeNonPublic = true
+    }
+
+    buildFeatures{
+        viewBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+dependencies {
+    implementation 'junit:junit:4.13.2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+    androidTestImplementation 'androidx.test:runner:1.6.1'
+    androidTestImplementation 'androidx.test:rules:1.6.1'
+    androidTestImplementation 'com.android.support.test.uiautomator:uiautomator-v18:2.1.3'
+    androidTestImplementation 'com.android.support:support-annotations:28.0.0'
+    androidTestUtil "androidx.test:orchestrator:1.5.0"
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.21"
+    implementation "org.jetbrains.kotlin:kotlin-test:1.9.0"
+    implementation project(':huntersmeadowlibandroid-release')
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
+
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    testImplementation 'junit:junit:4.13.2'
+}

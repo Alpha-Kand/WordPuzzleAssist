@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.huntersmeadow.wordpuzzleassist.activities.FITBActivity"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fillintheblanks_description_text"/>
+
+    <include
+        android:id="@+id/progress_layout"
+        layout="@layout/activity_progress_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/fillintheblanks_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="textNoSuggestions|textVisiblePassword"
+            android:hint="@string/generic_input_text"
+            android:importantForAutofill="no"/>
+
+        <Button
+            android:id="@+id/fillintheblanks_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:text="@string/generic_start_text" />
+
+        <Button
+            android:id="@+id/fillintheblanks_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:minWidth="0dp"
+            android:text="@string/generic_stop_text" />
+
+        <Button
+            android:id="@+id/fillintheblanks_ce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:text="@string/generic_clear_text" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/fillintheblanks_results"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:entries="@array/generic_no_results_yet_text"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="end"
+        style="?android:attr/buttonBarStyle">
+
+        <Button
+            android:id="@+id/fillintheblanks_asterisk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:text="@string/fillintheblanks_asterisk_mark_button"
+            style="?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/fillintheblanks_QuestionMark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:text="@string/fillintheblanks_question_mark_button"
+            style="?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/fillintheblanks_IgnoreLetters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fillintheblanks_ignore_certain_letters"
+            style="?android:attr/buttonBarButtonStyle"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>

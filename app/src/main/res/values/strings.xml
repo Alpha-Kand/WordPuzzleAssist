@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE resources [
+    <!ENTITY version_num "1.1">
+    ]>
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Word Puzzle Assist</string>
+    <string name="version_number" tools:keep="@string/version_number">&version_num;</string>
+
+    <string name="menu_about">About</string>
+
+    <string name="error_title">Word Puzzle Assist Error</string>
+    <string name="error_loading_words">There was an error loading word list.\nWord puzzle assistance may not work.</string>
+
+    <string name="activity_title_directory">Choose an assist.</string>
+    <string name="activity_title_anagram">Anagram Assist</string>
+    <string name="activity_title_fitb">Fill In The Blanks Assist</string>
+    <string name="activity_title_crypto">Crypto Assist</string>
+    <string name="activity_title_dictionary">Lexicon</string>
+
+    <string name="assist_card_title_anagram">Anagram \"%1$s\"</string>
+    <string name="assist_card_title_fitb">Fill In The Blanks \"%1$s\"</string>
+    <string name="assist_card_title_crypto">Crypto \"%1$s\"</string>
+    <string name="assist_card_title_dictionary">Lexicon \"%1$s\"</string>
+
+    <string name="generic_start_text">Start</string>
+    <string name="generic_stop_text">Stop</string>
+    <string name="generic_clear_text">CE</string>
+    <string name="generic_input_text">Enter word(s)</string>
+    <string-array name="generic_no_results_yet_text"><item>No results yet.</item></string-array>
+
+    <string name="directory_help_text">\u2022 Tap the icon to select an assist.\n\u2022 You can add as many as you like.\n\u2022 You can drag assist boxes around and rearrange them.\n\u2022 Press and hold to delete assist boxes.</string>
+    <string name="directory_selection_anagram_title">Anagram Finder</string>
+    <string name="directory_selection_anagram_desc">Rearranges letters to find other words.</string>
+    <string name="directory_selection_fitb_title">Fill In The Blanks</string>
+    <string name="directory_selection_fitb_desc">Auto-complete words and finds words that fit patterns.</string>
+    <string name="directory_selection_crypto_title">Crypto</string>
+    <string name="directory_selection_crypto_desc">Helps solve substitution cyphers.</string>
+    <string name="directory_selection_dictionary_title">Lexicon</string>
+    <string name="directory_selection_dictionary_desc">Look up words to see if they appear in this app\'s dictionary.</string>
+
+    <string name="anagram_description_text">Be aware, very big words and phrases might take awhile to solve.</string>
+    <string name="anagram_cancelled_text">"Anagram search was cancelled."</string>
+    <string name="anagram_max_word_size_text">change max: %1$d</string>
+    <string name="anagram_min_word_size_text">change min: %1$d</string>
+    <string name="anagram_change_word_length_message">Choose %1$s word length.</string>
+    <string name="anagram_minimum_length">minimum</string>
+    <string name="anagram_maximum_length">maximum</string>
+    <string name="anagram_type_normal">Normal</string>
+    <string name="anagram_type_phrases">Phrases</string>
+    <string name="anagram_type_sub_words">Sub words</string>
+    <string name="anagram_add_remove_dialog_message">Choose if you want to add/remove a letter.</string>
+    <string name="anagram_add_remove_letter_button_text">Add letter: %1$d</string>
+    <string name="anagram_help_text">\u2022 Enter a word(s) or series of letters into the input to find its anagrams (spaces are ignored).\n\u2022 \'CE\' clears the input.\n\u2022 \'Phrases Option\' anagrams the input into two or more words.\n\u2022 \'Sub words Option\' allows words that don\'t use all the letters.\n\u2022 \'Add letter\' \nIf set to +1, tries to anagram the input with an additional letter (anagrams 26 times, once for each letter of the alphabet).\nIf set to -1, anagrams the input by removing a letter (anagrams as many letters are in input).\n\u2022 \'Change max/min\' controls the words sizes when \'Phrases\' or \'Sub words\' is checked.</string>
+    <string name="anagram_help_example_text">smile</string>
+
+    <string name="fillintheblanks_description_text">Question marks (?) indicate single unknown characters.\nAsterisks (*) mark any quantity of unknown characters.</string>
+    <string name="fillintheblanks_cancelled_text">"Fill In The Blanks search was cancelled."</string>
+    <string name="fillintheblanks_choose_letters_all_on">All on</string>
+    <string name="fillintheblanks_choose_letters_all_off">All off</string>
+    <string name="fillintheblanks_question_mark_button">"?"</string>
+    <string name="fillintheblanks_asterisk_mark_button">*</string>
+    <string name="fillintheblanks_add_question_mark">%1$s*</string>
+    <string name="fillintheblanks_add_asterisk">%1$s?</string>
+    <string name="fillintheblanks_ignore_certain_letters">Ignore Certain Letters</string>
+    <string name="fillintheblanks_ignore_description">Choose which letters are allowed to fill in any blanks. Does not affect any of the letters you entered, only new ones that are found.</string>
+    <string name="fillintheblanks_help_text">\u2022Enter the letters you are certain of and (?) for single unknown letters, (*) for any amount of unknown letters.\n\u2022 \'CE\' clears the input.\n\u2022 \'Ignore certain letters\' you can choose to have the algorithm ignore certain letters when trying to add letters. Does NOT affect letters you entered into the input.</string>
+    <string name="fillintheblanks_help_example_single_button">Example ?</string>
+    <string name="fillintheblanks_help_example_multi_button">Example *</string>
+    <string name="fillintheblanks_help_example_single" tools:ignore="Typos">\?ello</string>
+    <string name="fillintheblanks_help_example_multi">*ello</string>
+
+    <string name="crypto_description_text">You can enter words/phrases/paragraphs all in one line or multiline. Note: The more words you enter and the larger they are, the faster it will solve.</string>
+    <string name="crypto_cancelled_text">Crypto solve was cancelled.</string>
+    <string name="crypto_attempt_number">Attempt %1$d of %2$d</string>
+    <string name="crypto_done_text">Done</string>
+    <string name="crypto_help_text">"\u2022 Carefully enter the crypto input, it can be all on one line or multiple.\n\u2022 Non-letters are skipped and will show up in the final answer. This allows you to enter entire passages complete with punctuation. The algorithm also preserves capital letters. Words are considered separated by spaces and newlines only.\n\u2022 \'CE\' clears the input. \n\u2022 It is normal for it to take a little while to solve.</string>
+    <string name="crypto_help_example_one_line_button">Example (one line)</string>
+    <string name="crypto_help_example_multiline_button">Example (multi line)</string>
+    <string name="crypto_help_example_one_line">"Tvachmbakz Lpddhnh Yanyblyppd Oavjhmnfmkhv"</string>
+    <string name="crypto_help_example_multi">Tvachmbakz\nLpddhnh\nYanyblyppd\nOavjhmnfmkhv</string>
+
+    <string name="dictionary_description_text">You can enter a word to see if it appears in the internal lexicon or dictionary.</string>
+    <string name="dictionary_input_text">Enter a word.</string>
+    <string name="dictionary_search_text">Search</string>
+    <string name="dictionary_help_text">\u2022Enter a word you want to look up to see if it is in the internal lexicon/dictionary.\n\u2022 \'CE\' clears the input.</string>
+    <string name="dictionary_successful_find">\u2714%1$s</string>
+
+
+    <string name="flv_first_ghost_text">Press the </string>
+    <string name="flv_second_ghost_text"> to start.</string>
+
+    <string name="base_activity_about">Developed by Hunter Wiesman\n\nPlease send feedback to \"huntersmeadow@gmail.com\"\n\nI\'d appreciate it. :)</string>
+    <string name="base_activity_about_title">Word Puzzle Assist (&version_num;)</string>
+
+    <string name="base_thread_no_results">No results found.</string>
+
+    <string name="assist_base_word_list_failed">Cannot start, word list failed to load.</string>
+    <string name="assist_base_word_list_loading">"Cannot start, word list hasn't finished loading."</string>
+
+    <string name="help_title">Help</string>
+    <string name="help_example_button">Example</string>
+
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+</resources>

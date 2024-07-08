@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":app" external.linked.project.path="$MODULE_DIR$/../../../app" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="WordPuzzleAssist" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="android-gradle" name="Android-Gradle">
+      <configuration>
+        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" value="8.2.2" />
+        <option name="LAST_KNOWN_AGP_VERSION" value="8.2.2" />
+      </configuration>
+    </facet>
+    <facet type="android" name="Android">
+      <configuration>
+        <option name="SELECTED_BUILD_VARIANT" value="debug" />
+        <option name="ALLOW_USER_CONFIGURATION" value="false" />
+        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
+        <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="" />
+        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="" />
+        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
+      </configuration>
+    </facet>
+    <facet type="kotlin-language" name="Kotlin">
+      <configuration version="4" platform="JVM 1.8" allPlatforms="JVM [1.8]" useProjectSettings="false">
+        <compilerSettings>
+          <option name="additionalArguments" value="-Xallow-no-source-files" />
+        </compilerSettings>
+        <compilerArguments>
+          <option name="destination" value="$MODULE_DIR$/../../../app/build/tmp/kotlin-classes/debug" />
+          <option name="classpath" value="$MODULE_DIR$/../../../app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar;C:/Users/alpha/.gradle/caches/transforms-3/49623672d0e34b3321767fff0b9b751c/transformed/jetified-viewbinding-7.0.3-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/ed639e68e056f2e3fb638da41bad734d/transformed/material-1.4.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/a56d2bb0a0dc822531fc43461dece5d9/transformed/appcompat-1.4.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/cef8111520d4f2bc0a5f9abf56d07e66/transformed/jetified-core-ktx-1.7.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/d0a136dbe716a8be4ba59093fbd87966/transformed/jetified-viewpager2-1.0.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/a7ff2d945db20da786e1318e40af963b/transformed/fragment-1.3.6-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/b8f491b276541854dffbe67d01738b03/transformed/jetified-activity-1.2.4-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/35ed79b01324cf9cbfbb3105bbe37cf1/transformed/jetified-appcompat-resources-1.4.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/5d1e39161612170063bf1c6130bce032/transformed/drawerlayout-1.0.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/58f1499e298ac9b73bd2d5f243bb143d/transformed/coordinatorlayout-1.1.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/f79754d09358dfa028156c616b01ea44/transformed/dynamicanimation-1.0.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/38884a0b8a06192b12b1eeb045249ce9/transformed/recyclerview-1.1.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/af3cd26d6533183d70448fabc7ddb57c/transformed/transition-1.2.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/96b7233611fcc55c62191322bbbf28ed/transformed/vectordrawable-animated-1.1.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/be64e6ed5f109945b246657b8857faa0/transformed/vectordrawable-1.1.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/ac4b79a0c0e79c743f9dfb384b01df62/transformed/viewpager-1.0.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/1d698c560ac5ee52e90205a467184198/transformed/legacy-support-core-utils-1.0.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/3e06a24ffac2c8b178b600e6c82a3063/transformed/loader-1.0.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/a24b87e39cf9c322daff48d4208b447c/transformed/customview-1.0.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/74f475e48f6f64f7ff94be24058c1a92/transformed/core-1.7.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/b0c477c8cc142728b210b21a86bbf3da/transformed/cursoradapter-1.0.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/47b1d4466b5aa9479a080a0e3daf68ed/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.1-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/27f39c03e4c266a43f1dec7598eff523/transformed/jetified-savedstate-1.1.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/1e8493c64a1d2dc0a9180697037d2f49/transformed/cardview-1.0.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/7c79980aaea66ace08611aa45467731a/transformed/lifecycle-runtime-2.4.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/79aa63f2221a3c361d03929f0a9954be/transformed/versionedparcelable-1.1.1-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/989d478631f8bdbfec236e616baf7256/transformed/lifecycle-viewmodel-2.3.1-api.jar;C:/Users/alpha/.gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.1.0/1f27220b47669781457de0d600849a5de0e89909/collection-1.1.0.jar;C:/Users/alpha/.gradle/caches/transforms-3/533bcb724d8286bde8825d6c4db1e920/transformed/lifecycle-livedata-2.0.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/5fa55eff23fa2dc8894e87891719047e/transformed/lifecycle-livedata-core-2.3.1-api.jar;C:/Users/alpha/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.4.0/1fdb7349701e9cf2f0a69fc10642b6fef6bb3e12/lifecycle-common-2.4.0.jar;C:/Users/alpha/.gradle/caches/transforms-3/58a3a3b29939cae37b3265343437dd49/transformed/core-runtime-2.1.0-api.jar;C:/Users/alpha/.gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.1.0/b3152fc64428c9354344bd89848ecddc09b6f07e/core-common-2.1.0.jar;C:/Users/alpha/.gradle/caches/transforms-3/f7eae3543baebc10c27865a487af2536/transformed/interpolator-1.0.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/7c235f90382627deafca56e8d998b8cb/transformed/documentfile-1.0.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/28c03b786e95ec4bef9c02329b756697/transformed/localbroadcastmanager-1.0.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/e4d95a339b6d7cbd79adfd6685c87632/transformed/print-1.0.0-api.jar;C:/Users/alpha/.gradle/caches/modules-2/files-2.1/androidx.annotation/annotation/1.3.0/21f49f5f9b85fc49de712539f79123119740595/annotation-1.3.0.jar;C:/Users/alpha/.gradle/caches/transforms-3/d0aae7a71e3bc9cc1686ffe51e82527a/transformed/jetified-junit-4.12.jar;C:/Users/alpha/.gradle/caches/transforms-3/50963c814b1a5b293f0e1afd76a23438/transformed/jetified-hamcrest-core-1.3.jar;C:/Users/alpha/.gradle/caches/transforms-3/94adce202f38d094d9c024bd24d57d8a/transformed/constraintlayout-2.1.2-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/a5b170f17ad446ca6f7269058569de06/transformed/jetified-annotation-experimental-1.1.0-api.jar;C:/Users/alpha/.gradle/caches/transforms-3/4760d445ffc5c85b6dbf1cc07de9f63a/transformed/jetified-kotlin-stdlib-jdk7-1.6.0.jar;C:/Users/alpha/.gradle/caches/transforms-3/65c927ce67036f745453dc9cefc1fb68/transformed/jetified-kotlin-test-1.6.0.jar;C:/Users/alpha/.gradle/caches/transforms-3/03dfdf248f169c578d6cbd08fc1c2e9f/transformed/jetified-kotlinx-coroutines-core-1.3.8.jar;C:/Users/alpha/.gradle/caches/transforms-3/ffc85f7e375b76ae7abddbdceb5e1a4f/transformed/jetified-kotlin-stdlib-1.6.0.jar;C:/Users/alpha/.gradle/caches/transforms-3/a42a31c4f95f80ca4472fac178704bd6/transformed/jetified-annotations-13.0.jar;C:/Users/alpha/.gradle/caches/transforms-3/02b8b42ed5271cf6b902483dd8d443c0/transformed/jetified-kotlin-stdlib-common-1.6.0.jar;C:/ASDF/projects/AndroidProjects/WordPuzzleAssist/huntersmeadowlibandroid-release/build/.transforms/e82f3dbdcf85878ebb5a6c341a8a6504/transformed/jetified-huntersmeadowlibandroid-release-api.jar;C:/Users/alpha/AppData/Local/Android/Sdk/platforms/android-31/android.jar;C:/Users/alpha/AppData/Local/Android/Sdk/build-tools/30.0.2/core-lambda-stubs.jar" />
+          <option name="noStdlib" value="true" />
+          <option name="moduleName" value="Word Puzzle Assist_debug" />
+          <option name="jvmTarget" value="1.8" />
+          <option name="languageVersion" value="1.6" />
+          <option name="apiVersion" value="1.6" />
+          <option name="pluginClasspaths">
+            <array />
+          </option>
+          <option name="pluginOptions">
+            <array />
+          </option>
+        </compilerArguments>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_17">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../app">
+      <excludeFolder url="file://$MODULE_DIR$/../../../app/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../app/build" />
+    </content>
+    <orderEntry type="jdk" jdkName="Android API 34, extension level 7 Platform" jdkType="Android SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

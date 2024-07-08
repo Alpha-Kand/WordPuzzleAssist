@@ -1,0 +1,17 @@
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.idea/caches
+huntersmeadowlibandroid-release/build
+huntersmeadowlibandroid-release/huntersmeadowlibandroid-release.aar
+app/release/output.json
+app/release/output-metadata.json
+app/release/Word Puzzle Assist-release.aab
+app/release/Word Puzzle Assist-release.apk
+ChunkPermutations.zip
+.idea/misc.xml

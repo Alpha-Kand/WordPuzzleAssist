@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.huntersmeadow.wordpuzzleassist.activities.AnagramsActivity"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <TextView
+        android:id="@+id/anagram_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/anagram_description_text"/>
+
+    <include
+        android:id="@+id/progress_layout"
+        layout="@layout/activity_progress_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/anagram_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="textNoSuggestions|textVisiblePassword"
+            android:hint="@string/generic_input_text"
+            android:importantForAutofill="no"/>
+
+        <Button
+            android:id="@+id/anagram_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:text="@string/generic_start_text" />
+
+        <Button
+            android:id="@+id/anagram_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:minWidth="0dp"
+            android:text="@string/generic_stop_text" />
+
+        <Button
+            android:id="@+id/anagram_ce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:text="@string/generic_clear_text" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/anagram_results"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="20"
+        android:entries="@array/generic_no_results_yet_text" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:id="@+id/anagram_type_radios"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/radio_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/anagram_type_normal" />
+
+            <RadioButton
+                android:id="@+id/radio_phrases"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/anagram_type_phrases" />
+
+            <RadioButton
+                android:id="@+id/radio_sub_words"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/anagram_type_sub_words" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/anagram_add_letter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/anagram_add_remove_letter_button_text" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/anagram_change_max"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/anagram_max_word_size_text" />
+
+            <Button
+                android:id="@+id/anagram_change_min"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/anagram_min_word_size_text" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
