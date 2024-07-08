@@ -16,7 +16,7 @@ android {
         applicationId "com.huntersmeadow.wordpuzzleassist"
         minSdkVersion 21
         targetSdkVersion 34
-        versionCode 4
+        versionCode 5
         versionName "@string/version_number"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
