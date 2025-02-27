@@ -8,7 +8,7 @@ repositories {
 }
 
 android {
-    compileSdk 34
+    compileSdk 35
     project.archivesBaseName = "Word Puzzle Assist"
     namespace 'com.huntersmeadow.wordpuzzleassist'
 
