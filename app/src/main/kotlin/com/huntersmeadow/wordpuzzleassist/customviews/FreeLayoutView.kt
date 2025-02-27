@@ -88,39 +88,30 @@ class FreeLayoutView(context: Context, attrs: AttributeSet) : ViewGroup(context,
             mPaint.getTextBounds(ghostTextFront, 0, ghostTextFront.length, mBounds)
             val firstTextWidth = mBounds.right
             mPaint.getTextBounds(ghostTextBack, 0, ghostTextFront.length, mBounds)
-            val secondTextWidth = mBounds.right
-            // Figure out where to place the ghost text and icon.
-            val totalHalfWidth = halve(
-                firstTextWidth +
-                    ghostIconSizeHalf +
-                    ghostIconSize +
-                    ghostIconSizeHalf +
-                    secondTextWidth,
-            )
             val halfWidth = halve(width)
             val ghostYPos = height / 3
 
             // Draw the front ghost text.
             canvas.drawText(
-                ghostTextFront,
-                (halfWidth - totalHalfWidth).toFloat(),
-                ghostYPos.toFloat(),
-                mPaint,
+                /* text = */ ghostTextFront,
+                /* x = */ (halfWidth - firstTextWidth - ghostIconSize).toFloat(),
+                /* y = */ ghostYPos.toFloat(),
+                /* paint = */ mPaint,
             )
             // Draw the ghost icon.
             mAddAssist.setBounds(
-                (halfWidth - ghostIconSizeHalf).toInt(),
-                ghostYPos - ghostIconSize,
-                (halfWidth + ghostIconSizeHalf).toInt(),
-                ghostYPos,
+                /* left = */ (halfWidth - ghostIconSizeHalf).toInt(),
+                /* top = */ ghostYPos - ghostIconSize,
+                /* right = */ (halfWidth + ghostIconSizeHalf).toInt(),
+                /* bottom = */ ghostYPos,
             )
             mAddAssist.draw(canvas)
             // Draw the ghost back text.
             canvas.drawText(
-                ghostTextBack,
-                (halfWidth + halve(ghostIconSize)).toFloat(),
-                ghostYPos.toFloat(),
-                mPaint,
+                /* text = */ ghostTextBack,
+                /* x = */ (halfWidth + ghostIconSize).toFloat(),
+                /* y = */ ghostYPos.toFloat(),
+                /* paint = */ mPaint,
             )
         }
     }
