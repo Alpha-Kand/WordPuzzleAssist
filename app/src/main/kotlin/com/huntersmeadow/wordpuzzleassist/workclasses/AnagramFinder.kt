@@ -512,20 +512,18 @@ class AnagramFinder(callback: MutableInteger = MutableInteger(-1)) : AssistParen
     // -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
 
     /** Enum containing the possible modifications to the various computations.
-     *
-     *  @param amount The number of letters to take or remove when calculating the anagram results.
      */
     enum class Modifier(val amount: Int) {
         /** Default behaviour. */
-        NONE(0),
+        NONE(amount = 0),
 
         /** The computation is done 26 different times, with each time 1 different letter of the
          *  alphabet is added to the given input. */
-        ADD_LETTER(1),
+        ADD_LETTER(amount = 1),
 
         /** The computation is done n times, where n is the amount of letters in the input. Each
          *  computation, 1 different letter is removed. */
-        REMOVE_LETTER(-1),
+        REMOVE_LETTER(amount = -1),
     }
 
     /** Represents a single frame in the find-phrase computation.

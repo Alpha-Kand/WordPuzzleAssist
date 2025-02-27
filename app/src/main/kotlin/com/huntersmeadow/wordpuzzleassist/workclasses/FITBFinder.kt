@@ -89,11 +89,11 @@ class FITBFinder : AssistParent() {
      */
     private fun substituteRegexSymbols(word: String): String {
         val build = StringBuilder()
-        for (i in word.indices) {
-            when {
-                word[i] == '*' -> build.append("[a-zA-Z]*")
-                word[i] == '?' -> build.append("[a-zA-Z]")
-                else -> build.append(word[i])
+        word.forEach { char ->
+            when (char) {
+                '*' -> build.append("[a-zA-Z]*")
+                '?' -> build.append("[a-zA-Z]")
+                else -> build.append(char)
             }
         }
         return build.toString()

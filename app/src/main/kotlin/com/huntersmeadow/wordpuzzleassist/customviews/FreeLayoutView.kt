@@ -12,7 +12,6 @@ import androidx.core.content.ContextCompat
 import com.huntersmeadow.wordpuzzleassist.R
 import com.huntersmeadow.wordpuzzleassist.double
 import com.huntersmeadow.wordpuzzleassist.halve
-import java.util.ArrayList
 
 /** Container for and drawer of AssistCard views.
  *

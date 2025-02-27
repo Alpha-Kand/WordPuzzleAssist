@@ -7,7 +7,6 @@ import com.huntersmeadow.wordpuzzleassist.activities.CryptoActivity
 import com.huntersmeadow.wordpuzzleassist.activities.DictionaryActivity
 import com.huntersmeadow.wordpuzzleassist.activities.FITBActivity
 import com.huntersmeadow.wordpuzzleassist.customviews.AssistCard
-import java.util.ArrayList
 
 /** Activity Orders defines containers and the order the puzzle assist threads, activities, etc.
  *  should be in. With the exception of the thread pools in 'Thread Manager', all of the containers

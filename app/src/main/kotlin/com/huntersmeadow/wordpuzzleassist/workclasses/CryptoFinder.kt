@@ -2,9 +2,7 @@ package com.huntersmeadow.wordpuzzleassist.workclasses
 
 import com.huntersmeadow.wordpuzzleassist.MutableInteger
 import org.junit.Assert.assertEquals
-import java.lang.StringBuilder
 import java.util.Stack
-import kotlin.collections.ArrayList
 
 class CryptoFinder(
     callback: MutableInteger = MutableInteger(-1),
@@ -573,13 +571,13 @@ class CryptoFinder(
                 if (char in 'A'..'Z') {
                     mRemovedSymbols.add(Pair(i, 'A'))
                     sb.append(char.lowercase())
-                } else // Add a normal symbol pair.
-                    {
-                        sb.append(' ')
-                        if (char != ' ') {
-                            mRemovedSymbols.add(Pair(i, char))
-                        }
+                } else {
+                    // Add a normal symbol pair.
+                    sb.append(' ')
+                    if (char != ' ') {
+                        mRemovedSymbols.add(Pair(i, char))
                     }
+                }
             }
         }
         return sb.toString()
@@ -597,10 +595,10 @@ class CryptoFinder(
             // Set the letter to upper case.
             if (pair.second == 'A') {
                 sb[pair.first] = sb[pair.first].uppercaseChar()
-            } else // Inserts a symbol.
-                {
-                    sb[pair.first] = pair.second
-                }
+            } else {
+                // Inserts a symbol.
+                sb[pair.first] = pair.second
+            }
         }
         return sb.toString()
     }
@@ -1003,9 +1001,6 @@ class CryptoFinder(
         /** The length of the defined word. */
         private var mLength: Int = newLength
 
-        /** The ending index of the defined word. */
-        private var mEnd: Int = -1
-
         /** The string containing the defined word. */
         private var mDict: String = newDict
 
@@ -1031,13 +1026,12 @@ class CryptoFinder(
             return mDict[mStart + i]
         }
 
-        /** Sets the new start of a word. Automatically initializes the start and end indexes.
+        /** Sets the new start of a word index.
          *
          *  @param i The new starting index.
          */
         fun setStart(i: Int) {
             mStart = i
-            mEnd = mStart + mLength - 1
         }
 
         /** Returns the substring's length.

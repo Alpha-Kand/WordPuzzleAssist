@@ -18,8 +18,6 @@ import com.huntersmeadow.wordpuzzleassist.customviews.FreeLayoutView
 import com.huntersmeadow.wordpuzzleassist.workclasses.ActivityOrders
 import com.huntersmeadow.wordpuzzleassist.workclasses.ThreadManager
 import com.huntersmeadow.wordpuzzleassist.workclasses.getEmptyClickListener
-import java.util.ArrayList
-import java.util.HashMap
 
 /** Activity that holds the [AssistCard]s and acts as a portal to the various assists in the app.
  */

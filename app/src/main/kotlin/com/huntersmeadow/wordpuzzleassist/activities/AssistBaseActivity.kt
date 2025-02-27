@@ -16,7 +16,6 @@ import com.huntersmeadow.wordpuzzleassist.customviews.FinishAssistIcon
 import com.huntersmeadow.wordpuzzleassist.hideKeyboardMine
 import com.huntersmeadow.wordpuzzleassist.workclasses.ThreadManager
 import com.huntersmeadow.wordpuzzleassist.workclasses.WordDictionary
-import java.util.ArrayList
 
 /** The activity base for the puzzle solving activities.
  */

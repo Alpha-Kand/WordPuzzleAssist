@@ -52,12 +52,12 @@ class CryptoActivity : AssistBaseActivity() {
         setContentView(R.layout.activity_crypto)
         setActionBarTitle(getString(R.string.activity_title_crypto))
         setIDs(
-            R.id.crypto_start,
-            R.id.crypto_stop,
-            R.id.crypto_input,
-            R.id.crypto_results,
-            R.string.crypto_cancelled_text,
-            ::startCrypto,
+            startButton = R.id.crypto_start,
+            stopButton = R.id.crypto_stop,
+            input = R.id.crypto_input,
+            resultList = R.id.crypto_results,
+            cancelledText = R.string.crypto_cancelled_text,
+            startFunction = ::startCrypto,
         )
         updateViews()
 

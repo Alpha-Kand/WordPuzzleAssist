@@ -81,16 +81,12 @@ class WordDictionary private constructor() {
     // REGULAR
     // -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
 
-    /** Returns whether or not every dictionary loading thread has finished.
-     *
+    /**
      *  @return Whether or not every dictionary loading thread has finished.
      */
-    fun isLoaded(): Boolean {
-        return PrivateConstants.WORD_LOADING_SUCCESS_TARGET == mLoadedSuccessfully.get()
-    }
+    fun isLoaded(): Boolean = PrivateConstants.WORD_LOADING_SUCCESS_TARGET == mLoadedSuccessfully.get()
 
-    /** Return whether or not any error dialogs were shown and errors occurred.
-     *
+    /**
      *  @return Whether or not any error dialogs were shown and errors occurred.
      */
     fun okay(): Boolean {
@@ -99,7 +95,7 @@ class WordDictionary private constructor() {
 
     /** Returns one of the sorted strings depending on the given word size.
      *
-     *  @param wordSize Specifies which word list to access.
+     *  @param wordSize Specifies which word list to access by word length.
      *  @return A word list.
      */
     fun getWords(wordSize: Int): String {
@@ -207,8 +203,8 @@ class WordDictionary private constructor() {
             val line = bf.readLine()
             mWordsBuilder[line.length].append(line)
         }
-        for (sBuilder in mWordsBuilder) {
-            mWords.add(sBuilder.toString())
+        mWordsBuilder.forEach {
+            mWords.add(it.toString())
         }
     }
 
@@ -260,11 +256,10 @@ class WordDictionary private constructor() {
                 left = mid
             }
 
-            if (right - left <= 1)
+            if (right - left <= 1) {
                 // No more words to search through.
-                {
-                    return false
-                }
+                return false
+            }
         }
     }
 

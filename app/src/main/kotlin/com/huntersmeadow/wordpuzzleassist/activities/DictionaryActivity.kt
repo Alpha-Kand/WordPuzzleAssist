@@ -18,12 +18,12 @@ class DictionaryActivity : AssistBaseActivity() {
         setContentView(R.layout.activity_dictionary)
         setActionBarTitle(getString(R.string.activity_title_dictionary))
         setIDs(
-            R.id.dictionary_search,
-            R.id.dummyStopButton,
-            R.id.dictionary_input,
-            R.id.dictionary_results,
-            -1,
-            ::startDictionary,
+            startButton = R.id.dictionary_search,
+            stopButton = R.id.dummyStopButton,
+            input = R.id.dictionary_input,
+            resultList = R.id.dictionary_results,
+            cancelledText = -1,
+            startFunction = ::startDictionary,
         )
 
         // Hard wire in the button callbacks.

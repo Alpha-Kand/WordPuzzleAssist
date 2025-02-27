@@ -127,10 +127,8 @@ class AnagramsActivity : AssistBaseActivity() {
         findViewById<Button>(R.id.anagram_change_min).text =
             getString(R.string.anagram_min_word_size_text, mMinLength.mValue)
         // Update modifier radios.
-        (
-            findViewById<RadioGroup>(R.id.anagram_type_radios)
-                .getChildAt(mAnagramType.mValue) as RadioButton
-            ).isChecked = true
+        val radioGroup = findViewById<RadioGroup>(R.id.anagram_type_radios)
+        (radioGroup.getChildAt(mAnagramType.mValue) as RadioButton).isChecked = true
     }
 
     // -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
