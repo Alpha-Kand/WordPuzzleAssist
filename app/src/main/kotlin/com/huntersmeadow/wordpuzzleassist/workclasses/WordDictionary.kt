@@ -8,7 +8,6 @@ import com.huntersmeadow.wordpuzzleassist.halve
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
-import java.util.ArrayList
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicInteger
 import java.util.concurrent.locks.ReentrantLock
@@ -34,9 +33,6 @@ class WordDictionary private constructor() {
     /** A list of all the words in the dictionary sorted alphabetically. */
     private var mDictionary = ArrayList<String>()
 
-    /** Reference to 'this' that subclasses can access. */
-    private val thisthis: WordDictionary = this
-
     /** Numerical counter keeping track of successfully loaded interpretations of the word file. */
     private val mLoadedSuccessfully: AtomicInteger = AtomicInteger(0)
 
@@ -58,7 +54,7 @@ class WordDictionary private constructor() {
         object : Thread() {
             override fun run() {
                 try {
-                    thisthis.loadIntoArrayList()
+                    loadIntoArrayList()
                     mLoadedSuccessfully.incrementAndGet()
                     synchronizedNotifyAll()
                 } catch (e: IOException) {
@@ -71,7 +67,7 @@ class WordDictionary private constructor() {
         object : Thread() {
             override fun run() {
                 try {
-                    thisthis.loadIntoStrings()
+                    loadIntoStrings()
                     mLoadedSuccessfully.incrementAndGet()
                     synchronizedNotifyAll()
                 } catch (e: IOException) {

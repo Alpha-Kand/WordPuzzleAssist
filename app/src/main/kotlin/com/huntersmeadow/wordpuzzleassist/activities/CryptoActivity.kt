@@ -90,18 +90,15 @@ class CryptoActivity : AssistBaseActivity() {
     }
 
     override fun helpMenuCALLBACK() {
-        val thisthis = this
         AlertDialog.Builder(this)
             .setMessage(getString(R.string.crypto_help_text))
             .setTitle(getString(R.string.help_title))
             .setNegativeButton(getString(R.string.crypto_help_example_one_line_button)) { _, _ ->
-                (thisthis.findViewById(R.id.crypto_input) as EditText)
-                    .setText(getString(R.string.crypto_help_example_one_line))
+                findViewById<EditText>(R.id.crypto_input)?.setText(getString(R.string.crypto_help_example_one_line))
                 startAssistCALLBACK()
             }
             .setPositiveButton(getString(R.string.crypto_help_example_multiline_button)) { _, _ ->
-                (thisthis.findViewById(R.id.crypto_input) as EditText)
-                    .setText(getString(R.string.crypto_help_example_multi))
+                findViewById<EditText>(R.id.crypto_input)?.setText(getString(R.string.crypto_help_example_multi))
                 startAssistCALLBACK()
             }
             .create()

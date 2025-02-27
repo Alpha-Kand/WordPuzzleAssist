@@ -78,17 +78,16 @@ class FITBActivity : AssistBaseActivity() {
 
     override fun helpMenuCALLBACK() {
         super.helpMenuCALLBACK()
-        val thisthis: FITBActivity = this
         AlertDialog.Builder(this)
             .setMessage(getString(R.string.fillintheblanks_help_text))
             .setTitle(getString(R.string.help_title))
             .setNegativeButton(getString(R.string.fillintheblanks_help_example_single_button)) { _, _ ->
-                (thisthis.findViewById(R.id.fillintheblanks_input) as EditText)
-                    .setText(getString(R.string.fillintheblanks_help_example_single))
+                findViewById<EditText>(R.id.fillintheblanks_input)
+                    ?.setText(getString(R.string.fillintheblanks_help_example_single))
                 startAssistCALLBACK()
             }.setPositiveButton(getString(R.string.fillintheblanks_help_example_multi_button)) { _, _ ->
-                (thisthis.findViewById(R.id.fillintheblanks_input) as EditText)
-                    .setText(getString(R.string.fillintheblanks_help_example_multi))
+                findViewById<EditText>(R.id.fillintheblanks_input)
+                    ?.setText(getString(R.string.fillintheblanks_help_example_multi))
                 startAssistCALLBACK()
             }
             .create()

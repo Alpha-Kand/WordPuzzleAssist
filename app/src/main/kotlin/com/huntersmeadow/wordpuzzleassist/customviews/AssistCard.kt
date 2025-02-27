@@ -35,8 +35,6 @@ class AssistCard(
     // -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
 
     // / PERSONAL ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    /** Reference to 'this' that subclasses and functions can access. */
-    private var thisthis: AssistCard = this
 
     /** Reference to the active DirectoryActivity. Also counts as a Context object. */
     private var mDirAct: DirectoryActivity = directoryActivity
@@ -69,10 +67,12 @@ class AssistCard(
     private val mLongPressHandler = Handler(Looper.getMainLooper())
 
     /** Runnable that has all AssistCards show their DACs. */
-    private var mLongPressedRunnable = Runnable { thisthis.performLongClick() }
+    private var mLongPressedRunnable = Runnable { performLongClick() }
 
-    /** Object that contains the coordinates of this AssistCard when the user stops
-     dragging it. */
+    /**
+     * Object that contains the coordinates of this AssistCard when the user stops
+     * dragging it.
+     */
     private var mCoord: Coord? = null
 
     /** Whether or not the card has been moved. */
