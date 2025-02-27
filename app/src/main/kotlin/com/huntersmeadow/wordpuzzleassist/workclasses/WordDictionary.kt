@@ -58,7 +58,7 @@ class WordDictionary private constructor() {
                     mLoadedSuccessfully.incrementAndGet()
                     synchronizedNotifyAll()
                 } catch (e: IOException) {
-                    BaseActivity.getCurrentActivity()!!.runOnUiThread { showLoadingWordListError() }
+                    BaseActivity.getCurrentActivity()?.runOnUiThread { showLoadingWordListError() }
                 }
             }
         }.start()
@@ -71,7 +71,7 @@ class WordDictionary private constructor() {
                     mLoadedSuccessfully.incrementAndGet()
                     synchronizedNotifyAll()
                 } catch (e: IOException) {
-                    BaseActivity.getCurrentActivity()!!.runOnUiThread { showLoadingWordListError() }
+                    BaseActivity.getCurrentActivity()?.runOnUiThread { showLoadingWordListError() }
                 }
             }
         }.start()
@@ -146,14 +146,16 @@ class WordDictionary private constructor() {
     /** Shows a error dialog from within the word list loading threads. */
     private fun showLoadingWordListError() {
         if (mOneErrorDialog.compareAndSet(false, true)) {
-            AlertDialog.Builder(BaseActivity.getCurrentActivity()!!)
-                .setTitle(BaseActivity.getCurrentActivity()!!.getString(R.string.error_title))
-                .setMessage(BaseActivity.getCurrentActivity()!!.getString(R.string.error_loading_words))
-                .setNeutralButton(
-                    BaseActivity.getCurrentActivity()!!.getString(R.string.dialog_ok),
-                    getEmptyClickListener(),
-                )
-                .setIcon(android.R.drawable.ic_dialog_alert).show()
+            BaseActivity.getCurrentActivity()?.run {
+                AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.error_title))
+                    .setMessage(getString(R.string.error_loading_words))
+                    .setNeutralButton(
+                        getString(R.string.dialog_ok),
+                        getEmptyClickListener(),
+                    )
+                    .setIcon(android.R.drawable.ic_dialog_alert).show()
+            }
         }
         synchronizedNotifyAll()
     }

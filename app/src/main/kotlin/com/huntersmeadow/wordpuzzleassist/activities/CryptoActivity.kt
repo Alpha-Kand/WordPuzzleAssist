@@ -30,14 +30,16 @@ class CryptoActivity : AssistBaseActivity() {
 
     /** Layout listener that determines when the keyboard has shown up. */
     private val mKeyboardLayoutListener = ViewTreeObserver.OnGlobalLayoutListener {
-        val heightDiff = mRootLayout!!.rootView.height - mRootLayout!!.height
-        if (mLast != heightDiff) {
-            if (mLast < heightDiff) {
-                onShowKeyboard()
-            } else {
-                onHideKeyboard()
+        mRootLayout?.run {
+            val heightDiff = rootView.height - height
+            if (mLast != heightDiff) {
+                if (mLast < heightDiff) {
+                    onShowKeyboard()
+                } else {
+                    onHideKeyboard()
+                }
+                mLast = heightDiff
             }
-            mLast = heightDiff
         }
     }
 
@@ -152,7 +154,7 @@ class CryptoActivity : AssistBaseActivity() {
             return
         }
         mRootLayout = findViewById(R.id.crypto_layout)
-        mRootLayout!!.viewTreeObserver.addOnGlobalLayoutListener(mKeyboardLayoutListener)
+        mRootLayout?.viewTreeObserver?.addOnGlobalLayoutListener(mKeyboardLayoutListener)
         mKeyboardListenerAttached = true
     }
 }
