@@ -14,7 +14,6 @@ import androidx.appcompat.widget.SwitchCompat
 import com.huntersmeadow.wordpuzzleassist.Mutable
 import com.huntersmeadow.wordpuzzleassist.R
 import com.huntersmeadow.wordpuzzleassist.workclasses.ThreadManager
-import java.util.ArrayList
 
 /** FITB solving activity. */
 class FITBActivity : AssistBaseActivity() {
@@ -38,12 +37,12 @@ class FITBActivity : AssistBaseActivity() {
         setContentView(R.layout.activity_fill_in_the_blanks)
         setActionBarTitle(getString(R.string.activity_title_fitb))
         setIDs(
-            R.id.fillintheblanks_start,
-            R.id.fillintheblanks_stop,
-            R.id.fillintheblanks_input,
-            R.id.fillintheblanks_results,
-            R.string.fillintheblanks_cancelled_text,
-            ::startFITB,
+            startButton = R.id.fillintheblanks_start,
+            stopButton = R.id.fillintheblanks_stop,
+            input = R.id.fillintheblanks_input,
+            resultList = R.id.fillintheblanks_results,
+            cancelledText = R.string.fillintheblanks_cancelled_text,
+            startFunction = ::startFITB,
         )
         updateViews()
 
@@ -78,17 +77,16 @@ class FITBActivity : AssistBaseActivity() {
 
     override fun helpMenuCALLBACK() {
         super.helpMenuCALLBACK()
-        val thisthis: FITBActivity = this
         AlertDialog.Builder(this)
             .setMessage(getString(R.string.fillintheblanks_help_text))
             .setTitle(getString(R.string.help_title))
             .setNegativeButton(getString(R.string.fillintheblanks_help_example_single_button)) { _, _ ->
-                (thisthis.findViewById(R.id.fillintheblanks_input) as EditText)
-                    .setText(getString(R.string.fillintheblanks_help_example_single))
+                findViewById<EditText>(R.id.fillintheblanks_input)
+                    ?.setText(getString(R.string.fillintheblanks_help_example_single))
                 startAssistCALLBACK()
             }.setPositiveButton(getString(R.string.fillintheblanks_help_example_multi_button)) { _, _ ->
-                (thisthis.findViewById(R.id.fillintheblanks_input) as EditText)
-                    .setText(getString(R.string.fillintheblanks_help_example_multi))
+                findViewById<EditText>(R.id.fillintheblanks_input)
+                    ?.setText(getString(R.string.fillintheblanks_help_example_multi))
                 startAssistCALLBACK()
             }
             .create()

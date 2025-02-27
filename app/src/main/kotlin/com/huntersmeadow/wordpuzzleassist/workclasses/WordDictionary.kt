@@ -8,7 +8,6 @@ import com.huntersmeadow.wordpuzzleassist.halve
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
-import java.util.ArrayList
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicInteger
 import java.util.concurrent.locks.ReentrantLock
@@ -34,9 +33,6 @@ class WordDictionary private constructor() {
     /** A list of all the words in the dictionary sorted alphabetically. */
     private var mDictionary = ArrayList<String>()
 
-    /** Reference to 'this' that subclasses can access. */
-    private val thisthis: WordDictionary = this
-
     /** Numerical counter keeping track of successfully loaded interpretations of the word file. */
     private val mLoadedSuccessfully: AtomicInteger = AtomicInteger(0)
 
@@ -58,11 +54,11 @@ class WordDictionary private constructor() {
         object : Thread() {
             override fun run() {
                 try {
-                    thisthis.loadIntoArrayList()
+                    loadIntoArrayList()
                     mLoadedSuccessfully.incrementAndGet()
                     synchronizedNotifyAll()
                 } catch (e: IOException) {
-                    BaseActivity.getCurrentActivity()!!.runOnUiThread { showLoadingWordListError() }
+                    BaseActivity.getCurrentActivity()?.runOnUiThread { showLoadingWordListError() }
                 }
             }
         }.start()
@@ -71,11 +67,11 @@ class WordDictionary private constructor() {
         object : Thread() {
             override fun run() {
                 try {
-                    thisthis.loadIntoStrings()
+                    loadIntoStrings()
                     mLoadedSuccessfully.incrementAndGet()
                     synchronizedNotifyAll()
                 } catch (e: IOException) {
-                    BaseActivity.getCurrentActivity()!!.runOnUiThread { showLoadingWordListError() }
+                    BaseActivity.getCurrentActivity()?.runOnUiThread { showLoadingWordListError() }
                 }
             }
         }.start()
@@ -85,16 +81,12 @@ class WordDictionary private constructor() {
     // REGULAR
     // -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
 
-    /** Returns whether or not every dictionary loading thread has finished.
-     *
+    /**
      *  @return Whether or not every dictionary loading thread has finished.
      */
-    fun isLoaded(): Boolean {
-        return PrivateConstants.WORD_LOADING_SUCCESS_TARGET == mLoadedSuccessfully.get()
-    }
+    fun isLoaded(): Boolean = PrivateConstants.WORD_LOADING_SUCCESS_TARGET == mLoadedSuccessfully.get()
 
-    /** Return whether or not any error dialogs were shown and errors occurred.
-     *
+    /**
      *  @return Whether or not any error dialogs were shown and errors occurred.
      */
     fun okay(): Boolean {
@@ -103,7 +95,7 @@ class WordDictionary private constructor() {
 
     /** Returns one of the sorted strings depending on the given word size.
      *
-     *  @param wordSize Specifies which word list to access.
+     *  @param wordSize Specifies which word list to access by word length.
      *  @return A word list.
      */
     fun getWords(wordSize: Int): String {
@@ -150,14 +142,16 @@ class WordDictionary private constructor() {
     /** Shows a error dialog from within the word list loading threads. */
     private fun showLoadingWordListError() {
         if (mOneErrorDialog.compareAndSet(false, true)) {
-            AlertDialog.Builder(BaseActivity.getCurrentActivity()!!)
-                .setTitle(BaseActivity.getCurrentActivity()!!.getString(R.string.error_title))
-                .setMessage(BaseActivity.getCurrentActivity()!!.getString(R.string.error_loading_words))
-                .setNeutralButton(
-                    BaseActivity.getCurrentActivity()!!.getString(R.string.dialog_ok),
-                    getEmptyClickListener(),
-                )
-                .setIcon(android.R.drawable.ic_dialog_alert).show()
+            BaseActivity.getCurrentActivity()?.run {
+                AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.error_title))
+                    .setMessage(getString(R.string.error_loading_words))
+                    .setNeutralButton(
+                        getString(R.string.dialog_ok),
+                        getEmptyClickListener(),
+                    )
+                    .setIcon(android.R.drawable.ic_dialog_alert).show()
+            }
         }
         synchronizedNotifyAll()
     }
@@ -209,8 +203,8 @@ class WordDictionary private constructor() {
             val line = bf.readLine()
             mWordsBuilder[line.length].append(line)
         }
-        for (sBuilder in mWordsBuilder) {
-            mWords.add(sBuilder.toString())
+        mWordsBuilder.forEach {
+            mWords.add(it.toString())
         }
     }
 
@@ -262,11 +256,10 @@ class WordDictionary private constructor() {
                 left = mid
             }
 
-            if (right - left <= 1)
+            if (right - left <= 1) {
                 // No more words to search through.
-                {
-                    return false
-                }
+                return false
+            }
         }
     }
 

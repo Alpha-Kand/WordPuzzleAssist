@@ -95,15 +95,14 @@ class AnagramsActivity : AssistBaseActivity() {
 
     override fun helpMenuCALLBACK() {
         super.helpMenuCALLBACK()
-        val thisthis = this
         val builder = AlertDialog.Builder(this)
             .setMessage(getString(R.string.anagram_help_text))
             .setTitle(getString(R.string.help_title))
             .setPositiveButton(getString(R.string.help_example_button)) { _, _ ->
-                (thisthis.findViewById(R.id.anagram_input) as EditText).setText(getString(R.string.anagram_help_example_text))
-                thisthis.mAddLetter.mValue = AnagramFinder.Modifier.NONE
-                thisthis.updateViews()
-                startAssistCALLBACK() // unusedView)
+                findViewById<EditText>(R.id.anagram_input)?.setText(getString(R.string.anagram_help_example_text))
+                mAddLetter.mValue = AnagramFinder.Modifier.NONE
+                updateViews()
+                startAssistCALLBACK()
             }
         builder.create().show()
     }
@@ -128,10 +127,8 @@ class AnagramsActivity : AssistBaseActivity() {
         findViewById<Button>(R.id.anagram_change_min).text =
             getString(R.string.anagram_min_word_size_text, mMinLength.mValue)
         // Update modifier radios.
-        (
-            findViewById<RadioGroup>(R.id.anagram_type_radios)
-                .getChildAt(mAnagramType.mValue) as RadioButton
-            ).isChecked = true
+        val radioGroup = findViewById<RadioGroup>(R.id.anagram_type_radios)
+        (radioGroup.getChildAt(mAnagramType.mValue) as RadioButton).isChecked = true
     }
 
     // -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
@@ -153,10 +150,9 @@ class AnagramsActivity : AssistBaseActivity() {
             .setPositiveButton(
                 getString(R.string.dialog_ok),
                 AddRemoveLetterClickListener(
-                    this,
-                    findViewById(R.id.anagram_add_letter),
-                    R.string.anagram_add_remove_letter_button_text,
-                    mAddLetter,
+                    buttonID = findViewById(R.id.anagram_add_letter),
+                    stringID = R.string.anagram_add_remove_letter_button_text,
+                    mMutableRef = mAddLetter,
                 ),
             )
             .setNegativeButton(getString(R.string.dialog_cancel), getEmptyClickListener())
@@ -253,10 +249,9 @@ class AnagramsActivity : AssistBaseActivity() {
             .setPositiveButton(
                 getString(R.string.dialog_ok),
                 MinMaxWordLengthClickListener(
-                    this,
-                    findViewById<View>(buttonViewID) as Button,
-                    stringID,
-                    mutInt,
+                    buttonID = findViewById<View>(buttonViewID) as Button,
+                    stringID = stringID,
+                    mMutableRef = mutInt,
                 ),
             )
             .setNegativeButton(getString(R.string.dialog_cancel), getEmptyClickListener())
@@ -278,7 +273,6 @@ class AnagramsActivity : AssistBaseActivity() {
      *  @param mStringID Reference to the string the TextView will be updated with.
      */
     private abstract class ParentClickListener(
-        var thisthis: AnagramsActivity,
         /** Reference to the Button that will be updated. */
         var mButtonViewID: Button,
         /** Reference to the string the TextView will be updated with. */
@@ -292,12 +286,11 @@ class AnagramsActivity : AssistBaseActivity() {
      *  @param mMutableRef Reference to the add/remove MutableInteger.
      */
     private inner class AddRemoveLetterClickListener(
-        newThisThis: AnagramsActivity,
         buttonID: Button,
         stringID: Int,
         /** Reference to a MutableInteger related to one of the AnagramFinder parameters. */
         private var mMutableRef: Mutable<AnagramFinder.Modifier>,
-    ) : ParentClickListener(newThisThis, buttonID, stringID) {
+    ) : ParentClickListener(buttonID, stringID) {
         /** On click callback. */
         override fun onClick(dialog: DialogInterface, which: Int) {
             // Update the passed mutable integer and update the relevant button text.
@@ -305,7 +298,7 @@ class AnagramsActivity : AssistBaseActivity() {
                 (dialog as Dialog).findViewById<NumberPicker>(R.id.numPicker).value - 1,
             )
             mButtonViewID.text = getString(mStringID, mMutableRef.mValue.amount)
-            thisthis.updateViews()
+            updateViews()
         }
     }
 
@@ -316,18 +309,17 @@ class AnagramsActivity : AssistBaseActivity() {
      *  @param mMutableRef Reference to the add/remove MutableInteger.
      */
     private inner class MinMaxWordLengthClickListener(
-        newThisThis: AnagramsActivity,
         buttonID: Button,
         stringID: Int,
         /** Reference to a MutableInteger related to one of the AnagramFinder parameters. */
         private var mMutableRef: MutableInteger,
-    ) : ParentClickListener(newThisThis, buttonID, stringID) {
+    ) : ParentClickListener(buttonID, stringID) {
         /** On click callback. */
         override fun onClick(dialog: DialogInterface, which: Int) {
             // Update the passed mutable integer and update the relevant button text.
             mMutableRef.mValue = (dialog as Dialog).findViewById<NumberPicker>(R.id.numPicker).value
             mButtonViewID.text = getString(mStringID, mMutableRef.mValue)
-            thisthis.updateViews()
+            updateViews()
         }
     }
 

@@ -5,7 +5,6 @@ import com.huntersmeadow.wordpuzzleassist.MutableInteger
 import com.huntersmeadow.wordpuzzleassist.R
 import com.huntersmeadow.wordpuzzleassist.WORDPUZZLEASSISTApp
 import java.util.Collections
-import kotlin.collections.ArrayList
 
 class ThreadManager {
 
@@ -209,7 +208,6 @@ class ThreadManager {
      */
     private fun genericThreadGo(updateJob: Thread): Int {
         updateJob.start()
-        mPOD[mCurrentIndex].mJob = updateJob
         mFocusThread = mCurrentIndex
         return mCurrentIndex++
     }
@@ -267,7 +265,6 @@ class ThreadManager {
         var mAssistType = assistType
         var mCancelled: Boolean = false
         var mMutableInteger = MutableInteger(0)
-        var mJob = Thread()
         var mResults = makeNewResultList()
         var mAssistParent = AssistParent()
 

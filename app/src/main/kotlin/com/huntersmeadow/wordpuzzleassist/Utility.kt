@@ -36,7 +36,6 @@ fun removeLetter(input: String, index: Int): String {
     return input.substring(0, index) + input.substring(index + 1)
 }
 
-
 /**
  * Doubles the value passed to it.
  *
@@ -73,7 +72,7 @@ fun reverseSubFactorial(num: Int, n: Int): Int {
     var innerNum = num
     var result = innerNum
 
-    repeat(n - 1){ // "result = innerI" is the first step.
+    repeat(n - 1) {
         result *= --innerNum
     }
 

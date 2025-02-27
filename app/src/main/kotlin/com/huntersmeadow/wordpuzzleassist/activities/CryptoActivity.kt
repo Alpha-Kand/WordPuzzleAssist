@@ -30,14 +30,16 @@ class CryptoActivity : AssistBaseActivity() {
 
     /** Layout listener that determines when the keyboard has shown up. */
     private val mKeyboardLayoutListener = ViewTreeObserver.OnGlobalLayoutListener {
-        val heightDiff = mRootLayout!!.rootView.height - mRootLayout!!.height
-        if (mLast != heightDiff) {
-            if (mLast < heightDiff) {
-                onShowKeyboard()
-            } else {
-                onHideKeyboard()
+        mRootLayout?.run {
+            val heightDiff = rootView.height - height
+            if (mLast != heightDiff) {
+                if (mLast < heightDiff) {
+                    onShowKeyboard()
+                } else {
+                    onHideKeyboard()
+                }
+                mLast = heightDiff
             }
-            mLast = heightDiff
         }
     }
 
@@ -50,12 +52,12 @@ class CryptoActivity : AssistBaseActivity() {
         setContentView(R.layout.activity_crypto)
         setActionBarTitle(getString(R.string.activity_title_crypto))
         setIDs(
-            R.id.crypto_start,
-            R.id.crypto_stop,
-            R.id.crypto_input,
-            R.id.crypto_results,
-            R.string.crypto_cancelled_text,
-            ::startCrypto,
+            startButton = R.id.crypto_start,
+            stopButton = R.id.crypto_stop,
+            input = R.id.crypto_input,
+            resultList = R.id.crypto_results,
+            cancelledText = R.string.crypto_cancelled_text,
+            startFunction = ::startCrypto,
         )
         updateViews()
 
@@ -90,18 +92,15 @@ class CryptoActivity : AssistBaseActivity() {
     }
 
     override fun helpMenuCALLBACK() {
-        val thisthis = this
         AlertDialog.Builder(this)
             .setMessage(getString(R.string.crypto_help_text))
             .setTitle(getString(R.string.help_title))
             .setNegativeButton(getString(R.string.crypto_help_example_one_line_button)) { _, _ ->
-                (thisthis.findViewById(R.id.crypto_input) as EditText)
-                    .setText(getString(R.string.crypto_help_example_one_line))
+                findViewById<EditText>(R.id.crypto_input)?.setText(getString(R.string.crypto_help_example_one_line))
                 startAssistCALLBACK()
             }
             .setPositiveButton(getString(R.string.crypto_help_example_multiline_button)) { _, _ ->
-                (thisthis.findViewById(R.id.crypto_input) as EditText)
-                    .setText(getString(R.string.crypto_help_example_multi))
+                findViewById<EditText>(R.id.crypto_input)?.setText(getString(R.string.crypto_help_example_multi))
                 startAssistCALLBACK()
             }
             .create()
@@ -155,7 +154,7 @@ class CryptoActivity : AssistBaseActivity() {
             return
         }
         mRootLayout = findViewById(R.id.crypto_layout)
-        mRootLayout!!.viewTreeObserver.addOnGlobalLayoutListener(mKeyboardLayoutListener)
+        mRootLayout?.viewTreeObserver?.addOnGlobalLayoutListener(mKeyboardLayoutListener)
         mKeyboardListenerAttached = true
     }
 }

@@ -16,7 +16,6 @@ import com.huntersmeadow.wordpuzzleassist.customviews.FinishAssistIcon
 import com.huntersmeadow.wordpuzzleassist.hideKeyboardMine
 import com.huntersmeadow.wordpuzzleassist.workclasses.ThreadManager
 import com.huntersmeadow.wordpuzzleassist.workclasses.WordDictionary
-import java.util.ArrayList
 
 /** The activity base for the puzzle solving activities.
  */
@@ -86,13 +85,12 @@ abstract class AssistBaseActivity : BaseActivity() {
         setStartStopButtonActive(true)
         // Start the update loop.
         mLoop = true
-        val thisthis: AssistBaseActivity = this
         Thread {
             while (mLoop) {
                 Thread.sleep((1000 / 60).toLong())
                 val progressLayout = getProgressLayout()
                 // Update progress bar.
-                thisthis.runOnUiThread {
+                runOnUiThread {
                     if (mProgressInteger.mValue > -1) {
                         val view = progressLayout.findViewById<ProgressBar>(R.id.generic_pb)
                         view.progress = mProgressInteger.mValue
@@ -113,7 +111,7 @@ abstract class AssistBaseActivity : BaseActivity() {
                     val attemptNumber = pod.mAttemptNum.mValue.coerceAtMost(pod.mMaxAttempts.mValue)
                     // Only show the attempt number if there is more than one attempt.
                     if (attemptNumber > MutableInteger(1).mValue) {
-                        thisthis.runOnUiThread {
+                        runOnUiThread {
                             val view = progressLayout.findViewById<TextView>(R.id.generic_textview)
                             view.text = getString(
                                 R.string.crypto_attempt_number,
@@ -122,7 +120,7 @@ abstract class AssistBaseActivity : BaseActivity() {
                             )
                         }
                     } else {
-                        thisthis.runOnUiThread {
+                        runOnUiThread {
                             val view = progressLayout.findViewById<TextView>(R.id.generic_textview)
                             view.text = ""
                         }
@@ -132,7 +130,7 @@ abstract class AssistBaseActivity : BaseActivity() {
                 // Check if the thread is done, and if so reflect that state change.
                 if (mProgressInteger.mValue == 100) {
                     if (mIndex != -1) {
-                        thisthis.runOnUiThread {
+                        runOnUiThread {
                             setStartStopButtonActive(true)
                             setResults(ThreadManager.instance().mPOD[mIndex].mResults)
                         }
